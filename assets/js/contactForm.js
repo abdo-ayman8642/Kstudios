@@ -22,11 +22,16 @@ document
   .querySelector(".php-email-form")
   .addEventListener("submit", async function (event) {
     event.preventDefault();
-
+ const loader = document.querySelector(".loader");
+const button = document.querySelector(".submit-button");
+  loader.style.display = "block";
+   button.style.display = "none";
 
       const recaptchaToken = grecaptcha.getResponse();
     if (!recaptchaToken) {
       alert("Please complete the reCAPTCHA.");
+      loader.style.display = "none";
+      button.style.display = "inline-block";
       return;
     }
 
@@ -110,7 +115,7 @@ document
           },
           body: JSON.stringify({
             name,
-            phoneNumber:'+'+ iti.getSelectedCountryData().dialCode + phone,
+            phoneNumber : phone,
             email,
             subject,
             message,
@@ -131,4 +136,6 @@ document
         alert("Error submitting form. Please try again.");
       }
     }
+    loader.style.display = "none";
+    button.style.display = "inline-block";
   });
