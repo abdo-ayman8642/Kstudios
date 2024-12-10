@@ -1,7 +1,7 @@
 "use strict";
 
 let iti;
-
+const BASE_URL = 'https://api.kstudios.co.uk'
 document.addEventListener("DOMContentLoaded", function () {
   const phoneInputField = document.querySelector("#phone");
 
@@ -103,20 +103,18 @@ document
     // If all fields are valid and reCAPTCHA is completed
     if (name && email && isValidPhone && subject && message && recaptchaToken) {
       try {
-        // Optionally, send form data and reCAPTCHA token to the server
-        const response = await fetch("/submit-form-endpoint", {
+        const response = await fetch(BASE_URL + '/api/contactus/sendMessage', {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
             name,
-            phone,
-            country_code:iti.getSelectedCountryData().dialCode,
+            phoneNumber:'+'+ iti.getSelectedCountryData().dialCode + phone,
             email,
             subject,
             message,
-            recaptchaToken,
+            recapchaToken:recaptchaToken,
           }),
         });
 
