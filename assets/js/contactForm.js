@@ -51,8 +51,8 @@ const button = document.querySelector(".submit-button");
 
     // Validate Name
     if (!name) {
-      nameInput.classList.add("is-invalid");
-      nameInput.nextElementSibling.textContent = "Name is required";
+      // nameInput.classList.add("is-invalid");
+      // nameInput.nextElementSibling.textContent = "Name is required";
     } else {
       nameInput.classList.remove("is-invalid");
       nameInput.nextElementSibling.textContent = "";
@@ -69,8 +69,8 @@ const button = document.querySelector(".submit-button");
 
     // Validate Subject
     if (!subject) {
-      subjectInput.classList.add("is-invalid");
-      subjectInput.nextElementSibling.textContent = "Subject is required";
+      // subjectInput.classList.add("is-invalid");
+      // subjectInput.nextElementSibling.textContent = "Subject is required";
     } else {
       subjectInput.classList.remove("is-invalid");
       subjectInput.nextElementSibling.textContent = "";
@@ -89,10 +89,10 @@ const button = document.querySelector(".submit-button");
     const isValidPhone = iti.isValidNumber(); // Check if the phone number is valid
 
     if (!phone) {
-      console.log(phoneInput.parentElement.parentElement.querySelector('.invalid-feedback'))
-      phoneInput.classList.add("is-invalid");
-      phoneInput.parentElement.parentElement.querySelector('.invalid-feedback').style.display = "block";
-      phoneInput.parentElement.parentElement.querySelector('.invalid-feedback').textContent = "Phone is required";
+      // console.log(phoneInput.parentElement.parentElement.querySelector('.invalid-feedback'))
+      // phoneInput.classList.add("is-invalid");
+      // phoneInput.parentElement.parentElement.querySelector('.invalid-feedback').style.display = "block";
+      // phoneInput.parentElement.parentElement.querySelector('.invalid-feedback').textContent = "Phone is required";
     } else if (!isValidPhone) {
       phoneInput.classList.add("is-invalid");
       phoneInput.parentElement.parentElement.querySelector('.invalid-feedback').style.display = "block";
@@ -106,7 +106,7 @@ const button = document.querySelector(".submit-button");
 
 
     // If all fields are valid and reCAPTCHA is completed
-    if (name && email && isValidPhone && subject && message && recaptchaToken) {
+    if (email && message && recaptchaToken) {
       try {
         const response = await fetch(BASE_URL + '/api/contactus/sendMessage', {
           method: "POST",
