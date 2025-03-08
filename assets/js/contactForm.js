@@ -39,13 +39,14 @@ const button = document.querySelector(".submit-button");
     const name = formData.get("name");
     const phone = formData.get("phone");
     const email = formData.get("email");
-    const subject = formData.get("subject");
+    const subject = '';
+    // formData.get("subject");
     const message = formData.get("message");
 
     const nameInput = document.querySelector('input[name="name"]');
     const phoneInput = document.querySelector('input[name="phone"]');
     const emailInput = document.querySelector('input[name="email"]');
-    const subjectInput = document.querySelector('input[name="subject"]');
+    //const subjectInput = document.querySelector('input[name="subject"]');
     const messageInput = document.querySelector("textarea");
     const successMessage = document.querySelector(".sent-message");
 
@@ -68,13 +69,13 @@ const button = document.querySelector(".submit-button");
     }
 
     // Validate Subject
-    if (!subject) {
-      // subjectInput.classList.add("is-invalid");
-      // subjectInput.nextElementSibling.textContent = "Subject is required";
-    } else {
-      subjectInput.classList.remove("is-invalid");
-      subjectInput.nextElementSibling.textContent = "";
-    }
+    // if (!subject) {
+    //   // subjectInput.classList.add("is-invalid");
+    //   // subjectInput.nextElementSibling.textContent = "Subject is required";
+    // } else {
+    //   subjectInput.classList.remove("is-invalid");
+    //   subjectInput.nextElementSibling.textContent = "";
+    // }
 
     // Validate Message
     if (!message) {

@@ -793,7 +793,11 @@ section,
   .section {
     scroll-margin-top: 58px;
   }
+  .contact{
+    padding:10px 0px;
+  }
 }
+
 
 /*--------------------------------------------------------------
 # Global Section Titles
